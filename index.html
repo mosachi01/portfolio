@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -529,6 +528,7 @@
       display: flex;
       gap: 15px;
       margin-top: 20px;
+      justify-content: flex-end;
     }
 
     .modal-btn {
@@ -991,8 +991,7 @@
         <!-- Tech items will be added here dynamically -->
       </div>
       <div class="modal-links">
-        <a href="#" class="modal-btn" id="liveLink" target="_blank">Live Demo</a>
-        <a href="#" class="modal-btn" id="codeLink" target="_blank">Source Code</a>
+        <a href="#" class="modal-btn" id="viewLink" target="_blank">View Website</a>
       </div>
     </div>
   </div>
@@ -1107,8 +1106,7 @@
     const modalImage = document.getElementById('modalImage');
     const modalDescription = document.getElementById('modalDescription');
     const modalTech = document.getElementById('modalTech');
-    const liveLink = document.getElementById('liveLink');
-    const codeLink = document.getElementById('codeLink');
+    const viewLink = document.getElementById('viewLink');
 
     // Project data
     const projects = {
@@ -1123,8 +1121,7 @@
           ar: 'حل تجاري إلكتروني حديث بتصميم متجاوب وتجربة مستخدم سلسة. يشمل ميزات مثل تصفية المنتجات، ووظيفة سلة التسوق، ومصادقة المستخدم، ومعالجة الدفع الآمن. مبني باستخدام React ومدمج مع Stripe لمعالجة الدفع.'
         },
         tech: ['React', 'Redux', 'Tailwind CSS', 'Stripe API', 'Node.js'],
-        live: '#',
-        code: '#'
+        link: '#'
       },
       dashboard: {
         title: {
@@ -1137,8 +1134,7 @@
           ar: 'لوحة تحكم تفاعلية مع عرض بيانات في الوقت الفعلي وواجهة سهلة الاستخدام. تتضمن مخططات ورسومات وتصورات مقاييس باستخدام Chart.js. تتميز بالتحكم في الوصول بناءً على الأدوار وإمكانية تصدير البيانات.'
         },
         tech: ['Vue.js', 'Chart.js', 'Firebase', 'SCSS', 'D3.js'],
-        live: '#',
-        code: '#'
+        link: '#'
       },
       portfolio: {
         title: {
@@ -1151,8 +1147,7 @@
           ar: 'موقع محفظة إبداعي بتصميم حديث وتحريكات سلسة. يعرض المشاريع مع عناصر تفاعلية وتمرير سلس. يحتوي على مفتاح تبديل الوضع الداكن/الفاتح وتصميم متجاوب لجميع الأجهزة.'
         },
         tech: ['HTML5', 'CSS3', 'JavaScript', 'GSAP', 'Framer Motion'],
-        live: '#',
-        code: '#'
+        link: '#'
       },
       landing: {
         title: {
@@ -1165,8 +1160,7 @@
           ar: 'صفحة هبوط مصممة لزيادة التحويل مع إمكانيات اختبار A/B. تتضمن أقسام متحركة، وتحقق النماذج، وتكامل التحليلات. محسنة لتحسين محركات البحث وأوقات التحميل السريع.'
         },
         tech: ['Next.js', 'Tailwind CSS', 'Framer Motion', 'Google Analytics', 'Netlify'],
-        live: '#',
-        code: '#'
+        link: '#'
       },
       blog: {
         title: {
@@ -1179,8 +1173,7 @@
           ar: 'نظام إدارة المحتوى مع محرر نصوص غني وتحسين محركات البحث. يشمل ميزات مثل مصادقة المستخدم، وتصنيف المحتوى، ونظام التعليقات. مبني باستخدام تقنيات الويب الحديثة للأداء الأمثل.'
         },
         tech: ['React', 'Markdown', 'Firebase', 'Prism.js', 'SEO'],
-        live: '#',
-        code: '#'
+        link: '#'
       },
       chat: {
         title: {
@@ -1193,8 +1186,7 @@
           ar: 'تطبيق محادثة يعتمد على WebSocket مع محادثات في الوقت الفعلي وإشعارات. يشمل ميزات مثل المحادثات الجماعية، ومشاركة الملفات، وسجل الرسائل. محسّن للأداء وتجربة المستخدم.'
         },
         tech: ['React', 'Socket.io', 'Node.js', 'Express', 'MongoDB'],
-        live: '#',
-        code: '#'
+        link: '#'
       },
       todo: {
         title: {
@@ -1207,8 +1199,7 @@
           ar: 'تطبيق إدارة المهام مع وظيفة السحب والإفلات وتتبع التقدم. يشمل ميزات مثل تصنيف المهام، ومستويات الأولوية، وإشعارات الموعد النهائي. مبني مع إدارة الحالة الحديثة.'
         },
         tech: ['React', 'Redux', 'DnD', 'Material UI', 'PWA'],
-        live: '#',
-        code: '#'
+        link: '#'
       },
       weather: {
         title: {
@@ -1221,8 +1212,7 @@
           ar: 'تطبيق الطقس الفعلي مع اكتشاف الموقع والتنبؤ ب 7 أيام. يتضمن معلومات الطقس التفصيلية، ومؤشر UV، وبيانات جودة الهواء. يحتوي على رسوم متحركة جميلة وواجهة سهلة الاستخدام.'
         },
         tech: ['JavaScript', 'OpenWeather API', 'Geolocation', 'CSS3', 'Animations'],
-        live: '#',
-        code: '#'
+        link: '#'
       }
     };
 
@@ -1247,8 +1237,8 @@
             modalTech.appendChild(techItem);
           });
           
-          liveLink.href = project.live;
-          codeLink.href = project.code;
+          viewLink.href = project.link;
+          viewLink.textContent = lang === 'ar' ? 'زيارة الموقع' : 'View Website';
           
           projectModal.classList.add('active');
           document.body.style.overflow = 'hidden';
@@ -1454,4 +1444,3 @@
   </script>
 </body>
 </html>
-
